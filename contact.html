@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact | JobHub</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+<link rel="stylesheet" href="contact.css">
+</head>
+<body>
+
+<!-- ══ NAVBAR ══ -->
+<header class="navbar">
+  <div class="logo">
+    <i class="fa-solid fa-briefcase"></i>
+    <h2>JobHub</h2>
+  </div>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="jobs.html">Jobs</a></li>
+    <li><a href="categories.html">Categories</a></li>
+    <li><a href="candidates.html">Candidates</a></li>
+    <li><a href="companies.html">Companies</a></li>
+    <li><a href="news.html">News</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="contact.html" class="active">Contact</a></li>
+  </ul>
+  <div class="nav-btns">
+    <button class="login">Login</button>
+    <button class="post-job">Post Job</button>
+  </div>
+</header>
+
+<!-- ══ BANNER ══ -->
+<section class="page-banner">
+  <div class="banner-icon"><i class="fa-solid fa-envelope-open-text"></i></div>
+  <h1>Contact Us</h1>
+  <p class="sub">We'd Love to Hear From You</p>
+  <p class="crumb">Home <span>/</span> Contact</p>
+</section>
+
+<!-- ══ CONTACT INFO CARDS ══ -->
+<section class="info-section reveal">
+  <div class="info-grid">
+    <div class="info-card">
+      <div class="info-icon"><i class="fa-solid fa-location-dot"></i></div>
+      <h3>Address</h3>
+      <p>123 Anna Salai<br>Chennai, Tamil Nadu</p>
+    </div>
+    <div class="info-card">
+      <div class="info-icon"><i class="fa-solid fa-phone"></i></div>
+      <h3>Phone</h3>
+      <p>+91 98765 43210</p>
+    </div>
+    <div class="info-card">
+      <div class="info-icon"><i class="fa-solid fa-envelope"></i></div>
+      <h3>Email</h3>
+      <p>support@jobhub.com</p>
+    </div>
+    <div class="info-card">
+      <div class="info-icon"><i class="fa-solid fa-clock"></i></div>
+      <h3>Working Hours</h3>
+      <p>Mon - Fri<br>9:00 AM - 6:00 PM</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CONTACT FORM + MAP ══ -->
+<section class="form-map-section reveal">
+  <div class="form-map-grid">
+
+    <!-- CONTACT FORM -->
+    <div class="form-card">
+      <h2>Send Us a Message</h2>
+      <p class="form-sub">Fill out the form and our team will get back to you within 24 hours.</p>
+
+      <form id="contactForm" novalidate>
+        <div class="form-group">
+          <label for="fullName">Full Name</label>
+          <input type="text" id="fullName" placeholder="Enter your full name">
+          <span class="error-msg" id="err-fullName"></span>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="text" id="email" placeholder="you@example.com">
+            <span class="error-msg" id="err-email"></span>
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input type="text" id="phone" placeholder="10-digit number" maxlength="10">
+            <span class="error-msg" id="err-phone"></span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="subject">Subject</label>
+          <input type="text" id="subject" placeholder="What's this about?">
+          <span class="error-msg" id="err-subject"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" rows="5" placeholder="Write your message here..."></textarea>
+          <span class="error-msg" id="err-message"></span>
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" class="send-btn"><i class="fa-solid fa-paper-plane"></i> Send Message</button>
+          <button type="button" class="reset-btn" onclick="resetForm()"><i class="fa-solid fa-rotate-left"></i> Reset</button>
+        </div>
+      </form>
+    </div>
+
+    <!-- MAP -->
+    <div class="map-card">
+      <h2>Our Office Location</h2>
+      <div class="map-wrap">
+        <iframe
+          src="https://www.google.com/maps?q=Anna+Salai,Chennai,Tamil+Nadu&output=embed"
+          width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy">
+        </iframe>
+      </div>
+      <div class="map-address">
+        <i class="fa-solid fa-location-dot"></i>
+        <span>123 Anna Salai, Chennai, Tamil Nadu, India</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══ WHY CONTACT US ══ -->
+<section class="why-section reveal">
+  <p class="section-eyebrow">Why Choose Us</p>
+  <h2 class="section-heading">Why Contact Us</h2>
+  <div class="why-grid">
+    <div class="why-card">
+      <div class="why-icon"><i class="fa-solid fa-bolt"></i></div>
+      <h3>Quick Response</h3>
+      <p>We reply to every query within 24 hours, no exceptions.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon"><i class="fa-solid fa-shield-halved"></i></div>
+      <h3>24/7 Support</h3>
+      <p>Our support team is available round the clock to assist you.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon"><i class="fa-solid fa-face-smile"></i></div>
+      <h3>Friendly Team</h3>
+      <p>Talk to real people who genuinely care about your career.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FAQ ══ -->
+<section class="faq-section reveal">
+  <p class="section-eyebrow">Got Questions</p>
+  <h2 class="section-heading">Frequently Asked Questions</h2>
+
+  <div class="faq-list">
+    <div class="faq-item">
+      <button class="faq-question">
+        How do I apply for jobs?
+        <i class="fa-solid fa-chevron-down"></i>
+      </button>
+      <div class="faq-answer">
+        <p>Create a free account, complete your profile with your resume and skills, then browse the Jobs page and click Apply Now on any listing that fits you.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question">
+        How can I post a job?
+        <i class="fa-solid fa-chevron-down"></i>
+      </button>
+      <div class="faq-answer">
+        <p>Click the "Post Job" button in the navbar, sign in as an employer, and fill in the job details form. Your listing goes live after a quick review.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question">
+        Is registration free?
+        <i class="fa-solid fa-chevron-down"></i>
+      </button>
+      <div class="faq-answer">
+        <p>Yes, creating a candidate account and applying to jobs is completely free. Employers get a limited number of free job posts before premium plans apply.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question">
+        How do I edit my profile or resume?
+        <i class="fa-solid fa-chevron-down"></i>
+      </button>
+      <div class="faq-answer">
+        <p>Go to your Dashboard after logging in, select "Edit Profile", and update your details, skills, or upload a new resume at any time.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question">
+        Can I get a refund on premium plans?
+        <i class="fa-solid fa-chevron-down"></i>
+      </button>
+      <div class="faq-answer">
+        <p>Refunds are available within 7 days of purchase if no job posts were published using the plan. Contact our support team to request one.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ SOCIAL MEDIA ══ -->
+<section class="social-section reveal">
+  <p class="section-eyebrow">Stay Connected</p>
+  <h2 class="section-heading">Follow Us On Social Media</h2>
+  <div class="social-row">
+    <a href="#" class="social-icon facebook" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+    <a href="#" class="social-icon instagram" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+    <a href="#" class="social-icon linkedin" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+    <a href="#" class="social-icon twitter" title="Twitter"><i class="fa-brands fa-twitter"></i></a>
+    <a href="#" class="social-icon github" title="GitHub"><i class="fa-brands fa-github"></i></a>
+  </div>
+</section>
+
+<!-- ══ NEWSLETTER ══ -->
+<section class="newsletter-section reveal">
+  <div class="newsletter-box">
+    <i class="fa-solid fa-envelope-open-text envelope-icon"></i>
+    <h2>Get Job Updates</h2>
+    <p>Subscribe to receive the latest jobs and career news straight to your inbox.</p>
+    <div class="newsletter-form">
+      <input type="email" id="newsletterEmail" placeholder="Enter your email address">
+      <button onclick="subscribeNewsletter()">Subscribe</button>
+    </div>
+  </div>
+</section>
+
+<!-- ══ SUCCESS MODAL ══ -->
+<div class="modal-overlay" id="successModal">
+  <div class="success-modal">
+    <div class="success-icon"><i class="fa-solid fa-circle-check"></i></div>
+    <h2>Message Sent Successfully</h2>
+    <p>Thanks for reaching out! Our team will get back to you within 24 hours.</p>
+    <button class="modal-close-btn" onclick="closeSuccessModal()">Close</button>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast"><i class="fa-solid fa-check-circle"></i> <span id="toast-msg"></span></div>
+
+<script src="contact.js"></script>
+</body>
+</html>

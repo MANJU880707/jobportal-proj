@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Categories | JobHub</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="categories.css">
+</head>
+<body>
+
+<!-- ══ NAVBAR ══ -->
+<header class="navbar">
+  <div class="logo">
+    <i class="fa-solid fa-briefcase"></i>
+    <h2>JobHub</h2>
+  </div>
+
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="jobs.html">Jobs</a></li>
+    <li><a href="categories.html" class="active">Categories</a></li>
+    <li><a href="candidates.html">Candidates</a></li>
+    <li><a href="companies.html">Companies</a></li>
+    <li><a href="news.html">News</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+
+  <div class="nav-btns">
+    <button class="login">Login</button>
+    <button class="post-job">Post Job</button>
+  </div>
+</header>
+
+<!-- ══ BANNER ══ -->
+<section class="job-banner">
+  <h1>Browse Job Categories</h1>
+  <p>Home / Categories</p>
+</section>
+
+<!-- ══ SEARCH BAR ══ -->
+<div class="cat-search-wrap">
+  <div class="cat-search">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <input type="text" id="categorySearch" placeholder="Search categories... (e.g. Design, Data, IT)">
+  </div>
+</div>
+
+<!-- ══ CATEGORY GRID ══ -->
+<section class="categories-container">
+
+  <div class="category-card" data-name="it software" data-slug="it-software">
+    <div class="cat-icon">💻</div>
+    <h3>IT & Software</h3>
+    <p>Frontend, Backend, Full Stack, Java, Python</p>
+    <span class="cat-count">120+ Jobs</span>
+  </div>
+
+  <div class="category-card" data-name="mobile development android ios flutter" data-slug="mobile-development">
+    <div class="cat-icon">📱</div>
+    <h3>Mobile Development</h3>
+    <p>Android, iOS, Flutter</p>
+    <span class="cat-count">58 Jobs</span>
+  </div>
+
+  <div class="category-card" data-name="ui ux design" data-slug="ui-ux-design">
+    <div class="cat-icon">🎨</div>
+    <h3>UI/UX Design</h3>
+    <p>UI Designer, UX Researcher, Graphic Designer</p>
+    <span class="cat-count">42 Jobs</span>
+  </div>
+
+  <div class="category-card" data-name="data science analyst ml" data-slug="data-science">
+    <div class="cat-icon">📊</div>
+    <h3>Data Science</h3>
+    <p>Data Analyst, Data Scientist, ML Engineer</p>
+    <span class="cat-count">65 Jobs</span>
+  </div>
+
+  <div class="category-card" data-name="ai machine learning nlp computer vision" data-slug="ai-ml">
+    <div class="cat-icon">🤖</div>
+    <h3>AI & Machine Learning</h3>
+    <p>AI Engineer, NLP, Computer Vision</p>
+    <span class="cat-count">37 Jobs</span>
+  </div>
+
+  <div class="category-card" data-name="cloud devops aws azure docker kubernetes" data-slug="cloud-devops">
+    <div class="cat-icon">☁️</div>
+    <h3>Cloud & DevOps</h3>
+    <p>AWS, Azure, Docker, Kubernetes</p>
+    <span class="cat-count">54 Jobs</span>
+  </div>
+
+  <div class="category-card" data-name="cyber security ethical hacker" data-slug="cyber-security">
+    <div class="cat-icon">🔒</div>
+    <h3>Cyber Security</h3>
+    <p>Security Analyst, Ethical Hacker</p>
+    <span class="cat-count">29 Jobs</span>
+  </div>
+
+  <div class="category-card" data-name="digital marketing seo sem social media" data-slug="digital-marketing">
+    <div class="cat-icon">📈</div>
+    <h3>Digital Marketing</h3>
+    <p>SEO, SEM, Social Media</p>
+    <span class="cat-count">48 Jobs</span>
+  </div>
+
+  <div class="category-card" data-name="finance banking accountant financial analyst" data-slug="finance-banking">
+    <div class="cat-icon">💰</div>
+    <h3>Finance & Banking</h3>
+    <p>Accountant, Financial Analyst</p>
+    <span class="cat-count">33 Jobs</span>
+  </div>
+
+  <div class="category-card" data-name="sales marketing executive business development" data-slug="sales-marketing">
+    <div class="cat-icon">🛒</div>
+    <h3>Sales & Marketing</h3>
+    <p>Sales Executive, Business Development</p>
+    <span class="cat-count">71 Jobs</span>
+  </div>
+
+  <div class="category-card" data-name="healthcare nurse pharmacist doctor" data-slug="healthcare">
+    <div class="cat-icon">🏥</div>
+    <h3>Healthcare</h3>
+    <p>Nurse, Pharmacist, Doctor</p>
+    <span class="cat-count">26 Jobs</span>
+  </div>
+
+  <div class="category-card" data-name="education teacher trainer lecturer" data-slug="education">
+    <div class="cat-icon">📚</div>
+    <h3>Education</h3>
+    <p>Teacher, Trainer, Lecturer</p>
+    <span class="cat-count">19 Jobs</span>
+  </div>
+
+  <div class="category-card" data-name="legal advocate legal advisor" data-slug="legal">
+    <div class="cat-icon">⚖️</div>
+    <h3>Legal</h3>
+    <p>Advocate, Legal Advisor</p>
+    <span class="cat-count">14 Jobs</span>
+  </div>
+
+  <div class="category-card" data-name="engineering civil mechanical electrical" data-slug="engineering">
+    <div class="cat-icon">🏗️</div>
+    <h3>Engineering</h3>
+    <p>Civil, Mechanical, Electrical</p>
+    <span class="cat-count">44 Jobs</span>
+  </div>
+
+  <div class="category-card" data-name="manufacturing production quality control" data-slug="manufacturing">
+    <div class="cat-icon">🏭</div>
+    <h3>Manufacturing</h3>
+    <p>Production, Quality Control</p>
+    <span class="cat-count">22 Jobs</span>
+  </div>
+
+  <div class="category-card" data-name="logistics supply chain warehouse" data-slug="logistics">
+    <div class="cat-icon">🚚</div>
+    <h3>Logistics</h3>
+    <p>Supply Chain, Warehouse</p>
+    <span class="cat-count">18 Jobs</span>
+  </div>
+
+  <div class="category-card" data-name="customer support bpo call center" data-slug="customer-support">
+    <div class="cat-icon">☎️</div>
+    <h3>Customer Support</h3>
+    <p>BPO, Call Center</p>
+    <span class="cat-count">35 Jobs</span>
+  </div>
+
+  <div class="category-card" data-name="content writing technical writer copywriter" data-slug="content-writing">
+    <div class="cat-icon">✍️</div>
+    <h3>Content Writing</h3>
+    <p>Technical Writer, Copywriter</p>
+    <span class="cat-count">21 Jobs</span>
+  </div>
+
+  <div class="category-card" data-name="media creative video editor photographer" data-slug="media-creative">
+    <div class="cat-icon">📷</div>
+    <h3>Media & Creative</h3>
+    <p>Video Editor, Photographer</p>
+    <span class="cat-count">17 Jobs</span>
+  </div>
+
+  <div class="category-card" data-name="internship student internships" data-slug="internship">
+    <div class="cat-icon">🎓</div>
+    <h3>Internship</h3>
+    <p>Student Internships</p>
+    <span class="cat-count">63 Jobs</span>
+  </div>
+
+  <p class="no-results" id="noResults" style="display:none;">No categories found 😕</p>
+
+</section>
+
+<script src="categories.js"></script>
+</body>
+</html>

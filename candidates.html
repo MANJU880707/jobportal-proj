@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Candidates | JobHub</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="candidates.css">
+</head>
+<body>
+
+<!-- ══ NAVBAR ══ -->
+<header class="navbar">
+  <div class="logo">
+    <i class="fa-solid fa-briefcase"></i>
+    <h2>JobHub</h2>
+  </div>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="jobs.html">Jobs</a></li>
+    <li><a href="categories.html">Categories</a></li>
+    <li><a href="candidates.html" class="active">Candidates</a></li>
+    <li><a href="companies.html">Companies</a></li>
+    <li><a href="news.html">News</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <div class="nav-btns">
+    <button class="login">Login</button>
+    <button class="post-job">Post Job</button>
+  </div>
+</header>
+
+<!-- ══ BANNER ══ -->
+<section class="job-banner">
+  <h1>Find the Best Talent</h1>
+  <p>Home / Candidates</p>
+</section>
+
+<!-- ══ SEARCH BAR ══ -->
+<div class="cand-search-wrap">
+  <div class="cand-search-box">
+    <div class="cand-search-field">
+      <i class="fa-solid fa-magnifying-glass"></i>
+      <input type="text" id="skillSearch" placeholder="Skills (e.g. React, Python)">
+    </div>
+    <div class="cand-divider"></div>
+    <div class="cand-search-field">
+      <i class="fa-solid fa-location-dot"></i>
+      <input type="text" id="locationSearch" placeholder="Location (e.g. Chennai, Bangalore)">
+    </div>
+    <div class="cand-divider"></div>
+    <div class="cand-search-field">
+      <i class="fa-solid fa-graduation-cap"></i>
+      <select id="expSearch">
+        <option value="">Experience Level</option>
+        <option value="fresher">Fresher</option>
+        <option value="1-2">1–2 Years</option>
+        <option value="3-5">3–5 Years</option>
+        <option value="5+">5+ Years</option>
+      </select>
+    </div>
+    <button class="cand-search-btn" id="searchBtn">
+      <i class="fa-solid fa-magnifying-glass"></i> Search
+    </button>
+  </div>
+</div>
+
+<!-- ══ MAIN LAYOUT ══ -->
+<div class="cand-layout">
+
+  <!-- SIDEBAR -->
+  <aside class="cand-sidebar">
+
+    <div class="filter-block">
+      <h4><i class="fa-solid fa-code"></i> Skills</h4>
+      <label><input type="checkbox" value="html"> HTML</label>
+      <label><input type="checkbox" value="css"> CSS</label>
+      <label><input type="checkbox" value="javascript"> JavaScript</label>
+      <label><input type="checkbox" value="react"> React</label>
+      <label><input type="checkbox" value="java"> Java</label>
+      <label><input type="checkbox" value="python"> Python</label>
+      <label><input type="checkbox" value="nodejs"> Node.js</label>
+      <label><input type="checkbox" value="flutter"> Flutter</label>
+    </div>
+
+    <div class="filter-block">
+      <h4><i class="fa-solid fa-briefcase"></i> Experience</h4>
+      <label><input type="checkbox" value="fresher" data-group="exp"> Fresher</label>
+      <label><input type="checkbox" value="1-2" data-group="exp"> 1–2 Years</label>
+      <label><input type="checkbox" value="3-5" data-group="exp"> 3–5 Years</label>
+      <label><input type="checkbox" value="5+" data-group="exp"> 5+ Years</label>
+    </div>
+
+    <div class="filter-block">
+      <h4><i class="fa-solid fa-user-graduate"></i> Education</h4>
+      <label><input type="checkbox" value="be" data-group="edu"> B.E</label>
+      <label><input type="checkbox" value="btech" data-group="edu"> B.Tech</label>
+      <label><input type="checkbox" value="mca" data-group="edu"> MCA</label>
+      <label><input type="checkbox" value="mba" data-group="edu"> MBA</label>
+      <label><input type="checkbox" value="bsc" data-group="edu"> B.Sc</label>
+    </div>
+
+    <div class="filter-block">
+      <h4><i class="fa-solid fa-calendar-check"></i> Availability</h4>
+      <label><input type="checkbox" value="immediate" data-group="avail"> Available Immediately</label>
+      <label><input type="checkbox" value="15days" data-group="avail"> Available in 15 Days</label>
+      <label><input type="checkbox" value="30days" data-group="avail"> Available in 30 Days</label>
+    </div>
+
+    <button class="clear-filters-btn" id="clearFilters">
+      <i class="fa-solid fa-rotate-left"></i> Clear All Filters
+    </button>
+
+    <!-- TOP SKILLS SECTION -->
+    <div class="top-skills-block">
+      <h4><i class="fa-solid fa-fire"></i> Top Skills</h4>
+      <div class="skill-tags">
+        <span class="skill-tag-filter" data-skill="html">HTML</span>
+        <span class="skill-tag-filter" data-skill="css">CSS</span>
+        <span class="skill-tag-filter" data-skill="javascript">JavaScript</span>
+        <span class="skill-tag-filter" data-skill="react">React</span>
+        <span class="skill-tag-filter" data-skill="java">Java</span>
+        <span class="skill-tag-filter" data-skill="python">Python</span>
+        <span class="skill-tag-filter" data-skill="nodejs">Node.js</span>
+        <span class="skill-tag-filter" data-skill="flutter">Flutter</span>
+      </div>
+    </div>
+
+  </aside>
+
+  <!-- CANDIDATES GRID -->
+  <div class="cand-main">
+
+    <!-- Top Bar -->
+    <div class="cand-top-bar">
+      <h2>All Candidates <span id="candCount">(12 results)</span></h2>
+      <div class="sort-wrap">
+        <label>Sort by:</label>
+        <select id="sortBy">
+          <option value="default">Default</option>
+          <option value="exp-asc">Experience: Low to High</option>
+          <option value="exp-desc">Experience: High to Low</option>
+          <option value="name">Name A–Z</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Cards Grid -->
+    <div class="candidates-grid" id="candidatesGrid">
+
+      <!-- Card 1 -->
+      <div class="cand-card featured"
+        data-name="manju k"
+        data-role="Frontend Developer"
+        data-location="chennai"
+        data-skills="html css javascript react"
+        data-exp="1-2"
+        data-edu="be"
+        data-avail="immediate"
+        data-exp-num="1"
+        data-email="manju@example.com"
+        data-phone="+91 98765 43210"
+        data-about="Passionate Frontend Developer with 1 year of experience building responsive web applications using React and modern CSS frameworks.">
+        <div class="featured-badge"><i class="fa-solid fa-star"></i> Featured</div>
+        <div class="bookmark-btn" title="Bookmark"><i class="fa-regular fa-bookmark"></i></div>
+        <div class="cand-avatar">
+          <img src="https://api.dicebear.com/7.x/personas/svg?seed=Manju&backgroundColor=ede4ff" alt="Manju K">
+        </div>
+        <h3>Manju K</h3>
+        <p class="cand-role">Frontend Developer</p>
+        <p class="cand-location"><i class="fa-solid fa-location-dot"></i> Chennai</p>
+        <p class="cand-edu"><i class="fa-solid fa-graduation-cap"></i> B.E CSE</p>
+        <div class="cand-skills">
+          <span>HTML</span><span>CSS</span><span>JavaScript</span><span>React</span>
+        </div>
+        <p class="cand-exp"><i class="fa-solid fa-briefcase"></i> 1 Year Experience</p>
+        <div class="cand-avail available"><i class="fa-solid fa-circle"></i> Available Now</div>
+        <div class="cand-actions">
+          <button class="view-profile-btn">View Profile</button>
+          <button class="download-resume-btn"><i class="fa-solid fa-download"></i> Resume</button>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="cand-card featured"
+        data-name="Kavi Siba"
+        data-role="Full Stack Developer"
+        data-location="bangalore"
+        data-skills="react nodejs javascript python"
+        data-exp="3-5"
+        data-edu="btech"
+        data-avail="15days"
+        data-exp-num="3"
+        data-email="kavi@example.com"
+        data-phone="+91 91234 56789"
+        data-about="Full Stack Developer with 3 years of experience in React and Node.js. Loves building scalable SaaS products.">
+        <div class="featured-badge"><i class="fa-solid fa-star"></i> Featured</div>
+        <div class="bookmark-btn" title="Bookmark"><i class="fa-regular fa-bookmark"></i></div>
+        <div class="cand-avatar">
+          <img src="https://api.dicebear.com/7.x/personas/svg?seed=Arjun&backgroundColor=ede4ff" alt="Arjun S">
+        </div>
+        <h3> Kavi Siba</h3>
+        <p class="cand-role">Full Stack Developer</p>
+        <p class="cand-location"><i class="fa-solid fa-location-dot"></i> Bangalore</p>
+        <p class="cand-edu"><i class="fa-solid fa-graduation-cap"></i> B.E IT</p>
+        <div class="cand-skills">
+          <span>React</span><span>Node.js</span><span>JavaScript</span><span>Python</span>
+        </div>
+        <p class="cand-exp"><i class="fa-solid fa-briefcase"></i> 3 Years Experience</p>
+        <div class="cand-avail in-15"><i class="fa-solid fa-circle"></i> Available in 15 Days</div>
+        <div class="cand-actions">
+          <button class="view-profile-btn">View Profile</button>
+          <button class="download-resume-btn"><i class="fa-solid fa-download"></i> Resume</button>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="cand-card"
+        data-name="Jacklin"
+        data-role="UI/UX Designer"
+        data-location="hyderabad"
+        data-skills="figma css html javascript"
+        data-exp="1-2"
+        data-edu="bsc"
+        data-avail="immediate"
+        data-exp-num="2"
+        data-email="jack@example.com"
+        data-phone="+91 99001 23456"
+        data-about="Creative UI/UX Designer with a knack for clean, user-friendly interfaces. Proficient in Figma and Adobe XD.">
+        <div class="bookmark-btn" title="Bookmark"><i class="fa-regular fa-bookmark"></i></div>
+        <div class="cand-avatar">
+          <img src="https://api.dicebear.com/7.x/personas/svg?seed=Priya&backgroundColor=fce4ff" alt="Priya R">
+        </div>
+        <h3>Jacklin</h3>
+        <p class="cand-role">UI/UX Designer</p>
+        <p class="cand-location"><i class="fa-solid fa-location-dot"></i> Hyderabad</p>
+        <p class="cand-edu"><i class="fa-solid fa-graduation-cap"></i> B.Sc Design</p>
+        <div class="cand-skills">
+          <span>Figma</span><span>CSS</span><span>HTML</span><span>JavaScript</span>
+        </div>
+        <p class="cand-exp"><i class="fa-solid fa-briefcase"></i> 2 Years Experience</p>
+        <div class="cand-avail available"><i class="fa-solid fa-circle"></i> Available Now</div>
+        <div class="cand-actions">
+          <button class="view-profile-btn">View Profile</button>
+          <button class="download-resume-btn"><i class="fa-solid fa-download"></i> Resume</button>
+        </div>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="cand-card"
+        data-name="poovika"
+        data-role="Java Backend Developer"
+        data-location="pune"
+        data-skills="java python nodejs"
+        data-exp="3-5"
+        data-edu="be"
+        data-avail="30days"
+        data-exp-num="4"
+        data-email="poovi@example.com"
+        data-phone="+91 87654 32109"
+        data-about="Backend developer specializing in Java Spring Boot and microservices. Experience with REST APIs and database design.">
+        <div class="bookmark-btn" title="Bookmark"><i class="fa-regular fa-bookmark"></i></div>
+        <div class="cand-avatar">
+          <img src="https://api.dicebear.com/7.x/personas/svg?seed=Rahul&backgroundColor=e4f0ff" alt="Rahul M">
+        </div>
+        <h3>Poovika k</h3>
+        <p class="cand-role">Java Backend Developer</p>
+        <p class="cand-location"><i class="fa-solid fa-location-dot"></i> Pune</p>
+        <p class="cand-edu"><i class="fa-solid fa-graduation-cap"></i> B.E ECE</p>
+        <div class="cand-skills">
+          <span>Java</span><span>Python</span><span>Node.js</span>
+        </div>
+        <p class="cand-exp"><i class="fa-solid fa-briefcase"></i> 4 Years Experience</p>
+        <div class="cand-avail in-30"><i class="fa-solid fa-circle"></i> Available in 30 Days</div>
+        <div class="cand-actions">
+          <button class="view-profile-btn">View Profile</button>
+          <button class="download-resume-btn"><i class="fa-solid fa-download"></i> Resume</button>
+        </div>
+      </div>
+
+      <!-- Card 5 -->
+      <div class="cand-card featured"
+        data-name="kani k"
+        data-role="Data Scientist"
+        data-location="mumbai"
+        data-skills="python java javascript"
+        data-exp="5+"
+        data-edu="mca"
+        data-avail="15days"
+        data-exp-num="6"
+        data-email="kani@example.com"
+        data-phone="+91 76543 21098"
+        data-about="Senior Data Scientist with 6+ years building ML pipelines, NLP models, and deploying AI solutions at scale.">
+        <div class="featured-badge"><i class="fa-solid fa-star"></i> Featured</div>
+        <div class="bookmark-btn" title="Bookmark"><i class="fa-regular fa-bookmark"></i></div>
+        <div class="cand-avatar">
+          <img src="https://api.dicebear.com/7.x/personas/svg?seed=Sneha&backgroundColor=e4fff0" alt="Sneha P">
+        </div>
+        <h3>Kani K</h3>
+        <p class="cand-role">Data Scientist</p>
+        <p class="cand-location"><i class="fa-solid fa-location-dot"></i> Mumbai</p>
+        <p class="cand-edu"><i class="fa-solid fa-graduation-cap"></i> MCA</p>
+        <div class="cand-skills">
+          <span>Python</span><span>Java</span><span>JavaScript</span>
+        </div>
+        <p class="cand-exp"><i class="fa-solid fa-briefcase"></i> 6 Years Experience</p>
+        <div class="cand-avail in-15"><i class="fa-solid fa-circle"></i> Available in 15 Days</div>
+        <div class="cand-actions">
+          <button class="view-profile-btn">View Profile</button>
+          <button class="download-resume-btn"><i class="fa-solid fa-download"></i> Resume</button>
+        </div>
+      </div>
+
+      <!-- Card 6 -->
+      <div class="cand-card"
+        data-name="Mathan"
+        data-role="Flutter Developer"
+        data-location="coimbatore"
+        data-skills="flutter javascript html"
+        data-exp="fresher"
+        data-edu="btech"
+        data-avail="immediate"
+        data-exp-num="0"
+        data-email="matha@example.com"
+        data-phone="+91 65432 10987"
+        data-about="Enthusiastic Flutter developer fresh out of B.Tech. Built 3 personal mobile apps and an e-commerce prototype during college.">
+        <div class="bookmark-btn" title="Bookmark"><i class="fa-regular fa-bookmark"></i></div>
+        <div class="cand-avatar">
+          <img src="https://api.dicebear.com/7.x/personas/svg?seed=Karthik&backgroundColor=fff4e4" alt="Karthik V">
+        </div>
+        <h3>Mathan k</h3>
+        <p class="cand-role">Flutter Developer</p>
+        <p class="cand-location"><i class="fa-solid fa-location-dot"></i> Coimbatore</p>
+        <p class="cand-edu"><i class="fa-solid fa-graduation-cap"></i> B.Tech CSE</p>
+        <div class="cand-skills">
+          <span>Flutter</span><span>JavaScript</span><span>HTML</span>
+        </div>
+        <p class="cand-exp"><i class="fa-solid fa-briefcase"></i> Fresher</p>
+        <div class="cand-avail available"><i class="fa-solid fa-circle"></i> Available Now</div>
+        <div class="cand-actions">
+          <button class="view-profile-btn">View Profile</button>
+          <button class="download-resume-btn"><i class="fa-solid fa-download"></i> Resume</button>
+        </div>
+      </div>
+
+      <!-- Card 7 -->
+      <div class="cand-card"
+        data-name="Merlin"
+        data-role="React Developer"
+        data-location="chennai"
+        data-skills="react javascript html css"
+        data-exp="1-2"
+        data-edu="mca"
+        data-avail="immediate"
+        data-exp-num="1"
+        data-email="merlin@example.com"
+        data-phone="+91 54321 09876"
+        data-about="MCA graduate with hands-on React.js experience. Worked on client dashboards and SPA projects during internship.">
+        <div class="bookmark-btn" title="Bookmark"><i class="fa-regular fa-bookmark"></i></div>
+        <div class="cand-avatar">
+          <img src="https://api.dicebear.com/7.x/personas/svg?seed=Divya&backgroundColor=ffe4e4" alt="Divya N">
+        </div>
+        <h3>Merlin</h3>
+        <p class="cand-role">React Developer</p>
+        <p class="cand-location"><i class="fa-solid fa-location-dot"></i> Chennai</p>
+        <p class="cand-edu"><i class="fa-solid fa-graduation-cap"></i> MCA</p>
+        <div class="cand-skills">
+          <span>React</span><span>JavaScript</span><span>HTML</span><span>CSS</span>
+        </div>
+        <p class="cand-exp"><i class="fa-solid fa-briefcase"></i> 1 Year Experience</p>
+        <div class="cand-avail available"><i class="fa-solid fa-circle"></i> Available Now</div>
+        <div class="cand-actions">
+          <button class="view-profile-btn">View Profile</button>
+          <button class="download-resume-btn"><i class="fa-solid fa-download"></i> Resume</button>
+        </div>
+      </div>
+
+      <!-- Card 8 -->
+      <div class="cand-card"
+        data-name="hari krishna"
+        data-role="DevOps Engineer"
+        data-location="bangalore"
+        data-skills="python javascript nodejs"
+        data-exp="3-5"
+        data-edu="btech"
+        data-avail="30days"
+        data-exp-num="3"
+        data-email="hari@example.com"
+        data-phone="+91 43210 98765"
+        data-about="DevOps Engineer with 3 years of experience in CI/CD pipelines, Docker, Kubernetes and AWS cloud infrastructure.">
+        <div class="bookmark-btn" title="Bookmark"><i class="fa-regular fa-bookmark"></i></div>
+        <div class="cand-avatar">
+          <img src="https://api.dicebear.com/7.x/personas/svg?seed=Hari&backgroundColor=e4fffc" alt="Hari Krishna">
+        </div>
+        <h3>Hari Krishna</h3>
+        <p class="cand-role">DevOps Engineer</p>
+        <p class="cand-location"><i class="fa-solid fa-location-dot"></i> Bangalore</p>
+        <p class="cand-edu"><i class="fa-solid fa-graduation-cap"></i> B.Tech IT</p>
+        <div class="cand-skills">
+          <span>Python</span><span>JavaScript</span><span>Node.js</span>
+        </div>
+        <p class="cand-exp"><i class="fa-solid fa-briefcase"></i> 3 Years Experience</p>
+        <div class="cand-avail in-30"><i class="fa-solid fa-circle"></i> Available in 30 Days</div>
+        <div class="cand-actions">
+          <button class="view-profile-btn">View Profile</button>
+          <button class="download-resume-btn"><i class="fa-solid fa-download"></i> Resume</button>
+        </div>
+      </div>
+
+      <!-- Card 9 -->
+      <div class="cand-card"
+        data-name="ananya g"
+        data-role="Python Developer"
+        data-location="delhi"
+        data-skills="python java nodejs javascript"
+        data-exp="1-2"
+        data-edu="bsc"
+        data-avail="15days"
+        data-exp-num="2"
+        data-email="ananya@example.com"
+        data-phone="+91 32109 87654"
+        data-about="Python developer with experience in Django, REST APIs, and data automation scripts. Strong problem-solver.">
+        <div class="bookmark-btn" title="Bookmark"><i class="fa-regular fa-bookmark"></i></div>
+        <div class="cand-avatar">
+          <img src="https://api.dicebear.com/7.x/personas/svg?seed=Ananya&backgroundColor=f0ffe4" alt="Ananya G">
+        </div>
+        <h3>Ananya G</h3>
+        <p class="cand-role">Python Developer</p>
+        <p class="cand-location"><i class="fa-solid fa-location-dot"></i> Delhi</p>
+        <p class="cand-edu"><i class="fa-solid fa-graduation-cap"></i> B.Sc CS</p>
+        <div class="cand-skills">
+          <span>Python</span><span>Java</span><span>Node.js</span>
+        </div>
+        <p class="cand-exp"><i class="fa-solid fa-briefcase"></i> 2 Years Experience</p>
+        <div class="cand-avail in-15"><i class="fa-solid fa-circle"></i> Available in 15 Days</div>
+        <div class="cand-actions">
+          <button class="view-profile-btn">View Profile</button>
+          <button class="download-resume-btn"><i class="fa-solid fa-download"></i> Resume</button>
+        </div>
+      </div>
+
+      <!-- Card 10 -->
+      <div class="cand-card"
+        data-name="ravi kumar"
+        data-role="Node.js Developer"
+        data-location="hyderabad"
+        data-skills="nodejs javascript react python"
+        data-exp="5+"
+        data-edu="mba"
+        data-avail="immediate"
+        data-exp-num="7"
+        data-email="ravi@example.com"
+        data-phone="+91 21098 76543"
+        data-about="Senior Node.js Developer with 7 years building high-performance APIs and real-time apps using WebSockets and Redis.">
+        <div class="bookmark-btn" title="Bookmark"><i class="fa-regular fa-bookmark"></i></div>
+        <div class="cand-avatar">
+          <img src="https://api.dicebear.com/7.x/personas/svg?seed=Ravi&backgroundColor=e4e8ff" alt="Ravi Kumar">
+        </div>
+        <h3>Ravi Kumar</h3>
+        <p class="cand-role">Node.js Developer</p>
+        <p class="cand-location"><i class="fa-solid fa-location-dot"></i> Hyderabad</p>
+        <p class="cand-edu"><i class="fa-solid fa-graduation-cap"></i> MBA Tech</p>
+        <div class="cand-skills">
+          <span>Node.js</span><span>JavaScript</span><span>React</span><span>Python</span>
+        </div>
+        <p class="cand-exp"><i class="fa-solid fa-briefcase"></i> 7 Years Experience</p>
+        <div class="cand-avail available"><i class="fa-solid fa-circle"></i> Available Now</div>
+        <div class="cand-actions">
+          <button class="view-profile-btn">View Profile</button>
+          <button class="download-resume-btn"><i class="fa-solid fa-download"></i> Resume</button>
+        </div>
+      </div>
+
+      <!-- Card 11 -->
+      <div class="cand-card"
+        data-name="meera t"
+        data-role="Java Developer"
+        data-location="chennai"
+        data-skills="java javascript html css"
+        data-exp="fresher"
+        data-edu="be"
+        data-avail="immediate"
+        data-exp-num="0"
+        data-email="meera@example.com"
+        data-phone="+91 10987 65432"
+        data-about="Fresh B.E graduate with strong Java fundamentals and hands-on project experience with Spring Boot and MySQL.">
+        <div class="bookmark-btn" title="Bookmark"><i class="fa-regular fa-bookmark"></i></div>
+        <div class="cand-avatar">
+          <img src="https://api.dicebear.com/7.x/personas/svg?seed=Meera&backgroundColor=ffeee4" alt="Meera T">
+        </div>
+        <h3>Meera T</h3>
+        <p class="cand-role">Java Developer</p>
+        <p class="cand-location"><i class="fa-solid fa-location-dot"></i> Chennai</p>
+        <p class="cand-edu"><i class="fa-solid fa-graduation-cap"></i> B.E CSE</p>
+        <div class="cand-skills">
+          <span>Java</span><span>JavaScript</span><span>HTML</span><span>CSS</span>
+        </div>
+        <p class="cand-exp"><i class="fa-solid fa-briefcase"></i> Fresher</p>
+        <div class="cand-avail available"><i class="fa-solid fa-circle"></i> Available Now</div>
+        <div class="cand-actions">
+          <button class="view-profile-btn">View Profile</button>
+          <button class="download-resume-btn"><i class="fa-solid fa-download"></i> Resume</button>
+        </div>
+      </div>
+
+      <!-- Card 12 -->
+      <div class="cand-card featured"
+        data-name="vikram s"
+        data-role="Senior React Developer"
+        data-location="bangalore"
+        data-skills="react javascript html css nodejs"
+        data-exp="5+"
+        data-edu="btech"
+        data-avail="15days"
+        data-exp-num="5"
+        data-email="vikram@example.com"
+        data-phone="+91 90876 54321"
+        data-about="Senior React Developer with 5+ years. Led frontend teams at two product startups. Expert in state management, performance optimization.">
+        <div class="featured-badge"><i class="fa-solid fa-star"></i> Featured</div>
+        <div class="bookmark-btn" title="Bookmark"><i class="fa-regular fa-bookmark"></i></div>
+        <div class="cand-avatar">
+          <img src="https://api.dicebear.com/7.x/personas/svg?seed=Vikram&backgroundColor=eee4ff" alt="Vikram S">
+        </div>
+        <h3>Vikram S</h3>
+        <p class="cand-role">Senior React Developer</p>
+        <p class="cand-location"><i class="fa-solid fa-location-dot"></i> Bangalore</p>
+        <p class="cand-edu"><i class="fa-solid fa-graduation-cap"></i> B.Tech CSE</p>
+        <div class="cand-skills">
+          <span>React</span><span>JavaScript</span><span>HTML</span><span>CSS</span><span>Node.js</span>
+        </div>
+        <p class="cand-exp"><i class="fa-solid fa-briefcase"></i> 5 Years Experience</p>
+        <div class="cand-avail in-15"><i class="fa-solid fa-circle"></i> Available in 15 Days</div>
+        <div class="cand-actions">
+          <button class="view-profile-btn">View Profile</button>
+          <button class="download-resume-btn"><i class="fa-solid fa-download"></i> Resume</button>
+        </div>
+      </div>
+
+    </div><!-- /.candidates-grid -->
+
+    <!-- No Results -->
+    <p class="no-cand-results" id="noResults" style="display:none;">
+      <i class="fa-solid fa-user-slash"></i><br>No candidates found. Try adjusting your filters.
+    </p>
+
+    <!-- PAGINATION -->
+    <div class="pagination" id="pagination">
+      <button class="pg-btn" id="prevBtn"><i class="fa-solid fa-chevron-left"></i></button>
+      <button class="pg-btn active" data-page="1">1</button>
+      <button class="pg-btn" data-page="2">2</button>
+      <button class="pg-btn" data-page="3">3</button>
+      <button class="pg-btn" data-page="4">4</button>
+      <button class="pg-btn" id="nextBtn"><i class="fa-solid fa-chevron-right"></i></button>
+    </div>
+
+  </div><!-- /.cand-main -->
+
+</div><!-- /.cand-layout -->
+
+<!-- ══ PROFILE MODAL ══ -->
+<div class="modal-overlay" id="profileModal">
+  <div class="modal-box">
+    <button class="modal-close" id="modalClose"><i class="fa-solid fa-xmark"></i></button>
+    <div class="modal-avatar" id="modalAvatar"></div>
+    <h2 id="modalName"></h2>
+    <p class="modal-role" id="modalRole"></p>
+    <div class="modal-meta">
+      <span id="modalLocation"><i class="fa-solid fa-location-dot"></i> </span>
+      <span id="modalEdu"><i class="fa-solid fa-graduation-cap"></i> </span>
+      <span id="modalExp"><i class="fa-solid fa-briefcase"></i> </span>
+    </div>
+    <p class="modal-about" id="modalAbout"></p>
+    <div class="modal-contact">
+      <a id="modalEmail" href="#"><i class="fa-solid fa-envelope"></i> <span></span></a>
+      <a id="modalPhone" href="#"><i class="fa-solid fa-phone"></i> <span></span></a>
+    </div>
+    <div class="modal-actions">
+      <button class="modal-bookmark-btn" id="modalBookmark"><i class="fa-regular fa-bookmark"></i> Save</button>
+      <button class="modal-download-btn"><i class="fa-solid fa-download"></i> Download Resume</button>
+    </div>
+  </div>
+</div>
+
+<script src="candidates.js"></script>
+</body>
+</html>

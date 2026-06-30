@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Companies | JobHub</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="companies.css">
+</head>
+<body>
+
+<!-- ══ NAVBAR ══ -->
+<header class="navbar">
+  <div class="logo">
+    <i class="fa-solid fa-briefcase"></i>
+    <h2>JobHub</h2>
+  </div>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="jobs.html">Jobs</a></li>
+    <li><a href="categories.html">Categories</a></li>
+    <li><a href="candidates.html">Candidates</a></li>
+    <li><a href="companies.html" class="active">Companies</a></li>
+    <li><a href="news.html">News</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <div class="nav-btns">
+    <button class="login">Login</button>
+    <button class="post-job">Post Job</button>
+  </div>
+</header>
+
+<!-- ══ BANNER ══ -->
+<section class="job-banner">
+  <h1>Explore Top Hiring Companies</h1>
+  <p>Home / Companies</p>
+</section>
+
+<!-- ══ SEARCH BAR ══ -->
+<div class="comp-search-wrap">
+  <div class="comp-search-box">
+    <div class="comp-search-field">
+      <i class="fa-solid fa-magnifying-glass"></i>
+      <input type="text" id="nameSearch" placeholder="Company Name (e.g. Google, TCS)">
+    </div>
+    <div class="comp-divider"></div>
+    <div class="comp-search-field">
+      <i class="fa-solid fa-location-dot"></i>
+      <input type="text" id="locSearch" placeholder="Location (e.g. Bangalore, Mumbai)">
+    </div>
+    <div class="comp-divider"></div>
+    <div class="comp-search-field">
+      <i class="fa-solid fa-building"></i>
+      <select id="industrySearch">
+        <option value="">All Industries</option>
+        <option value="it">💻 IT Services</option>
+        <option value="banking">🏦 Banking</option>
+        <option value="ecommerce">🛒 E-commerce</option>
+        <option value="telecom">📱 Telecom</option>
+        <option value="healthcare">🏥 Healthcare</option>
+        <option value="education">🎓 Education</option>
+      </select>
+    </div>
+    <button class="comp-search-btn" id="searchBtn">
+      <i class="fa-solid fa-magnifying-glass"></i> Search
+    </button>
+  </div>
+</div>
+
+<!-- ══ FEATURED STRIP ══ -->
+<div class="featured-strip-wrap">
+  <div class="featured-strip-label"><i class="fa-solid fa-star"></i> Featured Companies</div>
+  <div class="featured-strip" id="featuredStrip">
+    <span class="feat-chip" data-filter="google"><img src="image copy 6.png" alt="Google"> Google</span>
+    <span class="feat-chip" data-filter="microsoft"><img src="image copy 7.png" alt="Microsoft"> Microsoft</span>
+    <span class="feat-chip" data-filter="amazon"><img src="image copy 8.png" alt="Amazon"> Amazon</span>
+    <span class="feat-chip" data-filter="tcs"><img src="image copy 9.png" alt="TCS"> TCS</span>
+    <span class="feat-chip" data-filter="infosys"><img src="image copy 10.png" alt="Infosys"> Infosys</span>
+    <span class="feat-chip" data-filter="wipro"><img src="image copy 11.png" alt="Wipro"> Wipro</span>
+  </div>
+</div>
+
+<!-- ══ MAIN LAYOUT ══ -->
+<div class="comp-layout">
+
+  <!-- ── SIDEBAR ── -->
+  <aside class="comp-sidebar">
+
+    <div class="filter-block">
+      <h4><i class="fa-solid fa-industry"></i> Industry</h4>
+      <label><input type="checkbox" value="it" data-group="industry"> 💻 IT Services</label>
+      <label><input type="checkbox" value="banking" data-group="industry"> 🏦 Banking</label>
+      <label><input type="checkbox" value="ecommerce" data-group="industry"> 🛒 E-commerce</label>
+      <label><input type="checkbox" value="telecom" data-group="industry"> 📱 Telecom</label>
+      <label><input type="checkbox" value="healthcare" data-group="industry"> 🏥 Healthcare</label>
+      <label><input type="checkbox" value="education" data-group="industry"> 🎓 Education</label>
+    </div>
+
+    <div class="filter-block">
+      <h4><i class="fa-solid fa-users"></i> Company Size</h4>
+      <label><input type="checkbox" value="startup" data-group="size"> 🚀 Startup</label>
+      <label><input type="checkbox" value="small" data-group="size"> 50–200 Employees</label>
+      <label><input type="checkbox" value="mid" data-group="size"> 200–1000 Employees</label>
+      <label><input type="checkbox" value="large" data-group="size"> 1000+ Employees</label>
+    </div>
+
+    <div class="filter-block">
+      <h4><i class="fa-solid fa-location-dot"></i> Location</h4>
+      <label><input type="checkbox" value="chennai" data-group="loc"> Chennai</label>
+      <label><input type="checkbox" value="bangalore" data-group="loc"> Bangalore</label>
+      <label><input type="checkbox" value="hyderabad" data-group="loc"> Hyderabad</label>
+      <label><input type="checkbox" value="pune" data-group="loc"> Pune</label>
+      <label><input type="checkbox" value="mumbai" data-group="loc"> Mumbai</label>
+      <label><input type="checkbox" value="delhi" data-group="loc"> Delhi</label>
+    </div>
+
+    <button class="clear-filters-btn" id="clearFilters">
+      <i class="fa-solid fa-rotate-left"></i> Clear All Filters
+    </button>
+
+    <!-- RECENTLY ADDED -->
+    <div class="recent-block">
+      <h4><i class="fa-solid fa-clock-rotate-left"></i> Recently Added</h4>
+      <ul class="recent-list">
+        <li><span class="recent-dot"></span> Zoho Corporation</li>
+        <li><span class="recent-dot"></span> Freshworks</li>
+        <li><span class="recent-dot"></span> Cognizant</li>
+        <li><span class="recent-dot"></span> HCL Technologies</li>
+        <li><span class="recent-dot"></span> Razorpay</li>
+      </ul>
+    </div>
+
+  </aside>
+
+  <!-- ── MAIN AREA ── -->
+  <div class="comp-main">
+
+    <!-- Top Bar -->
+    <div class="comp-top-bar">
+      <h2>All Companies <span id="compCount">(15 results)</span></h2>
+      <div class="sort-wrap">
+        <label>Sort by:</label>
+        <select id="sortBy">
+          <option value="default">Featured First</option>
+          <option value="rating">Highest Rating</option>
+          <option value="jobs">Most Open Jobs</option>
+          <option value="name">Name A–Z</option>
+          <option value="newest">Recently Added</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Cards Grid -->
+    <div class="companies-grid" id="companiesGrid">
+
+      <!-- ── CARD DATA TEMPLATE ──
+           data-name, data-industry, data-location, data-size,
+           data-rating, data-jobs, data-featured, data-new,
+           data-founded, data-website, data-about, data-employees
+      -->
+
+      <div class="comp-card featured"
+        data-name="google"
+        data-display="Google"
+        data-industry="it"
+        data-location="bangalore"
+        data-size="large"
+        data-rating="4.8"
+        data-jobs="120"
+        data-jobs-num="120"
+        data-featured="true"
+        data-new="false"
+        data-founded="1998"
+        data-website="https://careers.google.com"
+        data-employees="1,50,000"
+        data-about="Google LLC is an American multinational technology company focusing on search engine technology, online advertising, cloud computing, and AI. It is one of the world's most valuable companies."
+        data-reviews='[{"stars":5,"text":"Incredible culture and amazing perks. Best place to grow."},{"stars":5,"text":"World-class engineering team and open work environment."}]'>
+        <div class="comp-fav" title="Favourite"><i class="fa-regular fa-heart"></i></div>
+        <div class="comp-featured-badge"><i class="fa-solid fa-star"></i> Featured</div>
+        <div class="comp-logo-wrap">
+          <img src="https://logo.clearbit.com/google.com" alt="Google" onerror="this.src='https://ui-avatars.com/api/?name=Google&background=ede4ff&color=5d0cdf&size=80'">
+        </div>
+        <div class="comp-info">
+          <h3>Google</h3>
+          <p class="comp-industry"><i class="fa-solid fa-laptop-code"></i> IT Services</p>
+          <p class="comp-loc"><i class="fa-solid fa-location-dot"></i> Bangalore</p>
+          <p class="comp-emp"><i class="fa-solid fa-users"></i> 1,50,000 Employees</p>
+          <div class="comp-rating-row">
+            <span class="comp-stars">⭐ 4.8</span>
+            <span class="comp-jobs-badge"><i class="fa-solid fa-fire"></i> 120 Open Jobs</span>
+          </div>
+          <button class="view-comp-btn">View Company</button>
+        </div>
+      </div>
+
+      <div class="comp-card featured"
+        data-name="microsoft"
+        data-display="Microsoft"
+        data-industry="it"
+        data-location="hyderabad"
+        data-size="large"
+        data-rating="4.7"
+        data-jobs="95"
+        data-jobs-num="95"
+        data-featured="true"
+        data-new="false"
+        data-founded="1975"
+        data-website="https://careers.microsoft.com"
+        data-employees="2,21,000"
+        data-about="Microsoft Corporation is an American multinational technology corporation which produces computer software, consumer electronics, personal computers, and cloud computing services."
+        data-reviews='[{"stars":5,"text":"Great work-life balance and strong leadership culture."},{"stars":4,"text":"Excellent learning resources and global opportunities."}]'>
+        <div class="comp-fav" title="Favourite"><i class="fa-regular fa-heart"></i></div>
+        <div class="comp-featured-badge"><i class="fa-solid fa-star"></i> Featured</div>
+        <div class="comp-logo-wrap">
+          <img src="https://logo.clearbit.com/microsoft.com" alt="Microsoft" onerror="this.src='https://ui-avatars.com/api/?name=Microsoft&background=ede4ff&color=5d0cdf&size=80'">
+        </div>
+        <div class="comp-info">
+          <h3>Microsoft</h3>
+          <p class="comp-industry"><i class="fa-solid fa-laptop-code"></i> IT Services</p>
+          <p class="comp-loc"><i class="fa-solid fa-location-dot"></i> Hyderabad</p>
+          <p class="comp-emp"><i class="fa-solid fa-users"></i> 2,21,000 Employees</p>
+          <div class="comp-rating-row">
+            <span class="comp-stars">⭐ 4.7</span>
+            <span class="comp-jobs-badge"><i class="fa-solid fa-fire"></i> 95 Open Jobs</span>
+          </div>
+          <button class="view-comp-btn">View Company</button>
+        </div>
+      </div>
+
+      <div class="comp-card featured"
+        data-name="amazon"
+        data-display="Amazon"
+        data-industry="ecommerce"
+        data-location="bangalore"
+        data-size="large"
+        data-rating="4.5"
+        data-jobs="210"
+        data-jobs-num="210"
+        data-featured="true"
+        data-new="false"
+        data-founded="1994"
+        data-website="https://amazon.jobs"
+        data-employees="1,62,000"
+        data-about="Amazon.com, Inc. is an American multinational technology company focusing on e-commerce, cloud computing (AWS), digital streaming, and artificial intelligence."
+        data-reviews='[{"stars":5,"text":"Fast paced environment. Huge scope for ownership."},{"stars":4,"text":"Best place for engineers who love scale and impact."}]'>
+        <div class="comp-fav" title="Favourite"><i class="fa-regular fa-heart"></i></div>
+        <div class="comp-featured-badge"><i class="fa-solid fa-star"></i> Featured</div>
+        <div class="comp-logo-wrap">
+          <img src="https://logo.clearbit.com/amazon.com" alt="Amazon" onerror="this.src='https://ui-avatars.com/api/?name=Amazon&background=ede4ff&color=5d0cdf&size=80'">
+        </div>
+        <div class="comp-info">
+          <h3>Amazon</h3>
+          <p class="comp-industry"><i class="fa-solid fa-cart-shopping"></i> E-commerce</p>
+          <p class="comp-loc"><i class="fa-solid fa-location-dot"></i> Bangalore</p>
+          <p class="comp-emp"><i class="fa-solid fa-users"></i> 1,62,000 Employees</p>
+          <div class="comp-rating-row">
+            <span class="comp-stars">⭐ 4.5</span>
+            <span class="comp-jobs-badge"><i class="fa-solid fa-fire"></i> 210 Open Jobs</span>
+          </div>
+          <button class="view-comp-btn">View Company</button>
+        </div>
+      </div>
+
+      <div class="comp-card featured"
+        data-name="tcs"
+        data-display="TCS"
+        data-industry="it"
+        data-location="chennai"
+        data-size="large"
+        data-rating="4.2"
+        data-jobs="540"
+        data-jobs-num="540"
+        data-featured="true"
+        data-new="false"
+        data-founded="1968"
+        data-website="https://www.tcs.com/careers"
+        data-employees="6,14,000"
+        data-about="Tata Consultancy Services (TCS) is an Indian multinational IT services and consulting company headquartered in Mumbai. It is the largest IT company in India."
+        data-reviews='[{"stars":4,"text":"Great for freshers. Strong training programs."},{"stars":4,"text":"Stable career growth and global exposure."}]'>
+        <div class="comp-fav" title="Favourite"><i class="fa-regular fa-heart"></i></div>
+        <div class="comp-featured-badge"><i class="fa-solid fa-star"></i> Featured</div>
+        <div class="comp-logo-wrap">
+          <img src="https://logo.clearbit.com/tcs.com" alt="TCS" onerror="this.src='https://ui-avatars.com/api/?name=TCS&background=ede4ff&color=5d0cdf&size=80'">
+        </div>
+        <div class="comp-info">
+          <h3>TCS</h3>
+          <p class="comp-industry"><i class="fa-solid fa-laptop-code"></i> IT Services</p>
+          <p class="comp-loc"><i class="fa-solid fa-location-dot"></i> Chennai</p>
+          <p class="comp-emp"><i class="fa-solid fa-users"></i> 6,14,000 Employees</p>
+          <div class="comp-rating-row">
+            <span class="comp-stars">⭐ 4.2</span>
+            <span class="comp-jobs-badge"><i class="fa-solid fa-fire"></i> 540 Open Jobs</span>
+          </div>
+          <button class="view-comp-btn">View Company</button>
+        </div>
+      </div>
+
+      <div class="comp-card featured"
+        data-name="infosys"
+        data-display="Infosys"
+        data-industry="it"
+        data-location="bangalore"
+        data-size="large"
+        data-rating="4.1"
+        data-jobs="320"
+        data-jobs-num="320"
+        data-featured="true"
+        data-new="false"
+        data-founded="1981"
+        data-website="https://www.infosys.com/careers"
+        data-employees="3,40,000"
+        data-about="Infosys Limited is an Indian multinational information technology company that provides business consulting, information technology and outsourcing services."
+        data-reviews='[{"stars":4,"text":"Good work culture with great onboarding programs."},{"stars":4,"text":"Plenty of upskilling opportunities through Lex platform."}]'>
+        <div class="comp-fav" title="Favourite"><i class="fa-regular fa-heart"></i></div>
+        <div class="comp-featured-badge"><i class="fa-solid fa-star"></i> Featured</div>
+        <div class="comp-logo-wrap">
+          <img src="https://logo.clearbit.com/infosys.com" alt="Infosys" onerror="this.src='https://ui-avatars.com/api/?name=Infosys&background=ede4ff&color=5d0cdf&size=80'">
+        </div>
+        <div class="comp-info">
+          <h3>Infosys</h3>
+          <p class="comp-industry"><i class="fa-solid fa-laptop-code"></i> IT Services</p>
+          <p class="comp-loc"><i class="fa-solid fa-location-dot"></i> Bangalore</p>
+          <p class="comp-emp"><i class="fa-solid fa-users"></i> 3,40,000 Employees</p>
+          <div class="comp-rating-row">
+            <span class="comp-stars">⭐ 4.1</span>
+            <span class="comp-jobs-badge"><i class="fa-solid fa-fire"></i> 320 Open Jobs</span>
+          </div>
+          <button class="view-comp-btn">View Company</button>
+        </div>
+      </div>
+
+      <div class="comp-card featured"
+        data-name="wipro"
+        data-display="Wipro"
+        data-industry="it"
+        data-location="bangalore"
+        data-size="large"
+        data-rating="4.0"
+        data-jobs="280"
+        data-jobs-num="280"
+        data-featured="true"
+        data-new="false"
+        data-founded="1945"
+        data-website="https://careers.wipro.com"
+        data-employees="2,50,000"
+        data-about="Wipro Limited is an Indian multinational corporation that provides information technology, consulting and business process services."
+        data-reviews='[{"stars":4,"text":"Flexible work arrangements and good salary packages."},{"stars":4,"text":"Diverse projects across multiple domains and clients."}]'>
+        <div class="comp-fav" title="Favourite"><i class="fa-regular fa-heart"></i></div>
+        <div class="comp-featured-badge"><i class="fa-solid fa-star"></i> Featured</div>
+        <div class="comp-logo-wrap">
+          <img src="https://logo.clearbit.com/wipro.com" alt="Wipro" onerror="this.src='https://ui-avatars.com/api/?name=Wipro&background=ede4ff&color=5d0cdf&size=80'">
+        </div>
+        <div class="comp-info">
+          <h3>Wipro</h3>
+          <p class="comp-industry"><i class="fa-solid fa-laptop-code"></i> IT Services</p>
+          <p class="comp-loc"><i class="fa-solid fa-location-dot"></i> Bangalore</p>
+          <p class="comp-emp"><i class="fa-solid fa-users"></i> 2,50,000 Employees</p>
+          <div class="comp-rating-row">
+            <span class="comp-stars">⭐ 4.0</span>
+            <span class="comp-jobs-badge"><i class="fa-solid fa-fire"></i> 280 Open Jobs</span>
+          </div>
+          <button class="view-comp-btn">View Company</button>
+        </div>
+      </div>
+
+      <div class="comp-card"
+        data-name="zoho"
+        data-display="Zoho"
+        data-industry="it"
+        data-location="chennai"
+        data-size="large"
+        data-rating="4.4"
+        data-jobs="180"
+        data-jobs-num="180"
+        data-featured="false"
+        data-new="true"
+        data-founded="1996"
+        data-website="https://www.zoho.com/careers.html"
+        data-employees="12,000"
+        data-about="Zoho Corporation is an Indian multinational technology company that makes web-based business tools and information technology solutions. It is best known for its SaaS CRM and suite of productivity tools."
+        data-reviews='[{"stars":5,"text":"Product-driven company with brilliant engineers."},{"stars":4,"text":"Excellent R&D culture. No external funding pressure."}]'>
+        <div class="comp-fav" title="Favourite"><i class="fa-regular fa-heart"></i></div>
+        <div class="comp-new-badge">🆕 New</div>
+        <div class="comp-logo-wrap">
+          <img src="https://logo.clearbit.com/zoho.com" alt="Zoho" onerror="this.src='https://ui-avatars.com/api/?name=Zoho&background=ede4ff&color=5d0cdf&size=80'">
+        </div>
+        <div class="comp-info">
+          <h3>Zoho</h3>
+          <p class="comp-industry"><i class="fa-solid fa-laptop-code"></i> IT Services</p>
+          <p class="comp-loc"><i class="fa-solid fa-location-dot"></i> Chennai</p>
+          <p class="comp-emp"><i class="fa-solid fa-users"></i> 12,000 Employees</p>
+          <div class="comp-rating-row">
+            <span class="comp-stars">⭐ 4.4</span>
+            <span class="comp-jobs-badge"><i class="fa-solid fa-fire"></i> 180 Open Jobs</span>
+          </div>
+          <button class="view-comp-btn">View Company</button>
+        </div>
+      </div>
+
+      <div class="comp-card"
+        data-name="freshworks"
+        data-display="Freshworks"
+        data-industry="it"
+        data-location="chennai"
+        data-size="mid"
+        data-rating="4.3"
+        data-jobs="75"
+        data-jobs-num="75"
+        data-featured="false"
+        data-new="true"
+        data-founded="2010"
+        data-website="https://www.freshworks.com/company/careers"
+        data-employees="5,000"
+        data-about="Freshworks Inc. is an American SaaS company that provides customer engagement software to businesses of all sizes. Its products include Freshdesk, Freshsales, and Freshservice."
+        data-reviews='[{"stars":4,"text":"Startup energy with great employee benefits."},{"stars":5,"text":"Fast-paced growth. Young and talented team."}]'>
+        <div class="comp-fav" title="Favourite"><i class="fa-regular fa-heart"></i></div>
+        <div class="comp-new-badge">🆕 New</div>
+        <div class="comp-logo-wrap">
+          <img src="https://logo.clearbit.com/freshworks.com" alt="Freshworks" onerror="this.src='https://ui-avatars.com/api/?name=Freshworks&background=ede4ff&color=5d0cdf&size=80'">
+        </div>
+        <div class="comp-info">
+          <h3>Freshworks</h3>
+          <p class="comp-industry"><i class="fa-solid fa-laptop-code"></i> IT Services</p>
+          <p class="comp-loc"><i class="fa-solid fa-location-dot"></i> Chennai</p>
+          <p class="comp-emp"><i class="fa-solid fa-users"></i> 5,000 Employees</p>
+          <div class="comp-rating-row">
+            <span class="comp-stars">⭐ 4.3</span>
+            <span class="comp-jobs-badge"><i class="fa-solid fa-fire"></i> 75 Open Jobs</span>
+          </div>
+          <button class="view-comp-btn">View Company</button>
+        </div>
+      </div>
+
+      <div class="comp-card"
+        data-name="cognizant"
+        data-display="Cognizant"
+        data-industry="it"
+        data-location="chennai"
+        data-size="large"
+        data-rating="3.9"
+        data-jobs="420"
+        data-jobs-num="420"
+        data-featured="false"
+        data-new="true"
+        data-founded="1994"
+        data-website="https://careers.cognizant.com"
+        data-employees="3,55,000"
+        data-about="Cognizant Technology Solutions Corporation is an American multinational IT services and consulting company headquartered in New Jersey."
+        data-reviews='[{"stars":4,"text":"Good for freshers with structured training programs."},{"stars":3,"text":"Large company — career progression can be slow."}]'>
+        <div class="comp-fav" title="Favourite"><i class="fa-regular fa-heart"></i></div>
+        <div class="comp-new-badge">🆕 New</div>
+        <div class="comp-logo-wrap">
+          <img src="https://logo.clearbit.com/cognizant.com" alt="Cognizant" onerror="this.src='https://ui-avatars.com/api/?name=Cognizant&background=ede4ff&color=5d0cdf&size=80'">
+        </div>
+        <div class="comp-info">
+          <h3>Cognizant</h3>
+          <p class="comp-industry"><i class="fa-solid fa-laptop-code"></i> IT Services</p>
+          <p class="comp-loc"><i class="fa-solid fa-location-dot"></i> Chennai</p>
+          <p class="comp-emp"><i class="fa-solid fa-users"></i> 3,55,000 Employees</p>
+          <div class="comp-rating-row">
+            <span class="comp-stars">⭐ 3.9</span>
+            <span class="comp-jobs-badge"><i class="fa-solid fa-fire"></i> 420 Open Jobs</span>
+          </div>
+          <button class="view-comp-btn">View Company</button>
+        </div>
+      </div>
+
+      <div class="comp-card"
+        data-name="hdfc"
+        data-display="HDFC Bank"
+        data-industry="banking"
+        data-location="mumbai"
+        data-size="large"
+        data-rating="4.1"
+        data-jobs="90"
+        data-jobs-num="90"
+        data-featured="false"
+        data-new="false"
+        data-founded="1994"
+        data-website="https://www.hdfcbank.com/content/bbp/repositories/723fb80a-2dde-42a3-9793-7ae1be57c87f/career/index.html"
+        data-employees="1,77,000"
+        data-about="HDFC Bank Limited is an Indian banking and financial services company headquartered in Mumbai. It is India's largest private sector bank by assets."
+        data-reviews='[{"stars":4,"text":"Structured work environment with great incentives."},{"stars":4,"text":"Strong brand value and employee welfare programs."}]'>
+        <div class="comp-fav" title="Favourite"><i class="fa-regular fa-heart"></i></div>
+        <div class="comp-logo-wrap">
+          <img src="https://logo.clearbit.com/hdfcbank.com" alt="HDFC Bank" onerror="this.src='https://ui-avatars.com/api/?name=HDFC&background=ede4ff&color=5d0cdf&size=80'">
+        </div>
+        <div class="comp-info">
+          <h3>HDFC Bank</h3>
+          <p class="comp-industry"><i class="fa-solid fa-landmark"></i> Banking</p>
+          <p class="comp-loc"><i class="fa-solid fa-location-dot"></i> Mumbai</p>
+          <p class="comp-emp"><i class="fa-solid fa-users"></i> 1,77,000 Employees</p>
+          <div class="comp-rating-row">
+            <span class="comp-stars">⭐ 4.1</span>
+            <span class="comp-jobs-badge"><i class="fa-solid fa-fire"></i> 90 Open Jobs</span>
+          </div>
+          <button class="view-comp-btn">View Company</button>
+        </div>
+      </div>
+
+      <div class="comp-card"
+        data-name="flipkart"
+        data-display="Flipkart"
+        data-industry="ecommerce"
+        data-location="bangalore"
+        data-size="large"
+        data-rating="4.2"
+        data-jobs="160"
+        data-jobs-num="160"
+        data-featured="false"
+        data-new="false"
+        data-founded="2007"
+        data-website="https://www.flipkartcareers.com"
+        data-employees="30,000"
+        data-about="Flipkart Private Limited is an Indian e-commerce company, headquartered in Bengaluru. It is a subsidiary of Walmart Inc., offering a wide range of products across categories."
+        data-reviews='[{"stars":4,"text":"Great place to learn product and tech at scale."},{"stars":4,"text":"Collaborative teams and good work culture overall."}]'>
+        <div class="comp-fav" title="Favourite"><i class="fa-regular fa-heart"></i></div>
+        <div class="comp-logo-wrap">
+          <img src="https://logo.clearbit.com/flipkart.com" alt="Flipkart" onerror="this.src='https://ui-avatars.com/api/?name=Flipkart&background=ede4ff&color=5d0cdf&size=80'">
+        </div>
+        <div class="comp-info">
+          <h3>Flipkart</h3>
+          <p class="comp-industry"><i class="fa-solid fa-cart-shopping"></i> E-commerce</p>
+          <p class="comp-loc"><i class="fa-solid fa-location-dot"></i> Bangalore</p>
+          <p class="comp-emp"><i class="fa-solid fa-users"></i> 30,000 Employees</p>
+          <div class="comp-rating-row">
+            <span class="comp-stars">⭐ 4.2</span>
+            <span class="comp-jobs-badge"><i class="fa-solid fa-fire"></i> 160 Open Jobs</span>
+          </div>
+          <button class="view-comp-btn">View Company</button>
+        </div>
+      </div>
+
+      <div class="comp-card"
+        data-name="airtel"
+        data-display="Airtel"
+        data-industry="telecom"
+        data-location="delhi"
+        data-size="large"
+        data-rating="3.8"
+        data-jobs="55"
+        data-jobs-num="55"
+        data-featured="false"
+        data-new="false"
+        data-founded="1995"
+        data-website="https://www.airtel.in/careers"
+        data-employees="1,40,000"
+        data-about="Bharti Airtel Limited is an Indian multinational telecommunications company headquartered in New Delhi. It operates in 18 countries across South Asia and Africa."
+        data-reviews='[{"stars":4,"text":"Excellent telecom brand with stable career paths."},{"stars":3,"text":"Good compensation but work pressure can be high."}]'>
+        <div class="comp-fav" title="Favourite"><i class="fa-regular fa-heart"></i></div>
+        <div class="comp-logo-wrap">
+          <img src="https://logo.clearbit.com/airtel.in" alt="Airtel" onerror="this.src='https://ui-avatars.com/api/?name=Airtel&background=ede4ff&color=5d0cdf&size=80'">
+        </div>
+        <div class="comp-info">
+          <h3>Airtel</h3>
+          <p class="comp-industry"><i class="fa-solid fa-tower-broadcast"></i> Telecom</p>
+          <p class="comp-loc"><i class="fa-solid fa-location-dot"></i> Delhi</p>
+          <p class="comp-emp"><i class="fa-solid fa-users"></i> 1,40,000 Employees</p>
+          <div class="comp-rating-row">
+            <span class="comp-stars">⭐ 3.8</span>
+            <span class="comp-jobs-badge"><i class="fa-solid fa-fire"></i> 55 Open Jobs</span>
+          </div>
+          <button class="view-comp-btn">View Company</button>
+        </div>
+      </div>
+
+      <div class="comp-card"
+        data-name="apollo"
+        data-display="Apollo Hospitals"
+        data-industry="healthcare"
+        data-location="chennai"
+        data-size="large"
+        data-rating="4.0"
+        data-jobs="38"
+        data-jobs-num="38"
+        data-featured="false"
+        data-new="false"
+        data-founded="1983"
+        data-website="https://www.apollohospitals.com/careers"
+        data-employees="70,000"
+        data-about="Apollo Hospitals Enterprise Limited is an Indian multinational healthcare group and the largest private hospital chain in Asia. It is headquartered in Chennai."
+        data-reviews='[{"stars":4,"text":"Great infrastructure and patient-first approach."},{"stars":4,"text":"Strong brand with good salary for healthcare roles."}]'>
+        <div class="comp-fav" title="Favourite"><i class="fa-regular fa-heart"></i></div>
+        <div class="comp-logo-wrap">
+          <img src="https://logo.clearbit.com/apollohospitals.com" alt="Apollo Hospitals" onerror="this.src='https://ui-avatars.com/api/?name=Apollo&background=ede4ff&color=5d0cdf&size=80'">
+        </div>
+        <div class="comp-info">
+          <h3>Apollo Hospitals</h3>
+          <p class="comp-industry"><i class="fa-solid fa-hospital"></i> Healthcare</p>
+          <p class="comp-loc"><i class="fa-solid fa-location-dot"></i> Chennai</p>
+          <p class="comp-emp"><i class="fa-solid fa-users"></i> 70,000 Employees</p>
+          <div class="comp-rating-row">
+            <span class="comp-stars">⭐ 4.0</span>
+            <span class="comp-jobs-badge"><i class="fa-solid fa-fire"></i> 38 Open Jobs</span>
+          </div>
+          <button class="view-comp-btn">View Company</button>
+        </div>
+      </div>
+
+      <div class="comp-card"
+        data-name="byju"
+        data-display="BYJU'S"
+        data-industry="education"
+        data-location="bangalore"
+        data-size="large"
+        data-rating="3.5"
+        data-jobs="45"
+        data-jobs-num="45"
+        data-featured="false"
+        data-new="false"
+        data-founded="2011"
+        data-website="https://byjus.com/jobs"
+        data-employees="50,000"
+        data-about="BYJU'S is an Indian multinational educational technology company, headquartered in Bengaluru. It provides online learning programs for students from kindergarten to post-graduate level."
+        data-reviews='[{"stars":3,"text":"High energy work culture. Good for freshers."},{"stars":4,"text":"Ed-tech pioneer with massive product impact."}]'>
+        <div class="comp-fav" title="Favourite"><i class="fa-regular fa-heart"></i></div>
+        <div class="comp-logo-wrap">
+          <img src="https://logo.clearbit.com/byjus.com" alt="BYJU'S" onerror="this.src='https://ui-avatars.com/api/?name=BYJUS&background=ede4ff&color=5d0cdf&size=80'">
+        </div>
+        <div class="comp-info">
+          <h3>BYJU'S</h3>
+          <p class="comp-industry"><i class="fa-solid fa-graduation-cap"></i> Education</p>
+          <p class="comp-loc"><i class="fa-solid fa-location-dot"></i> Bangalore</p>
+          <p class="comp-emp"><i class="fa-solid fa-users"></i> 50,000 Employees</p>
+          <div class="comp-rating-row">
+            <span class="comp-stars">⭐ 3.5</span>
+            <span class="comp-jobs-badge"><i class="fa-solid fa-fire"></i> 45 Open Jobs</span>
+          </div>
+          <button class="view-comp-btn">View Company</button>
+        </div>
+      </div>
+
+      <div class="comp-card"
+        data-name="razorpay"
+        data-display="Razorpay"
+        data-industry="banking"
+        data-location="bangalore"
+        data-size="mid"
+        data-rating="4.5"
+        data-jobs="60"
+        data-jobs-num="60"
+        data-featured="false"
+        data-new="true"
+        data-founded="2014"
+        data-website="https://razorpay.com/jobs"
+        data-employees="3,000"
+        data-about="Razorpay is an Indian fintech company that allows businesses to accept, process, and disburse payments through its product suite. It is one of India's leading payment gateways."
+        data-reviews='[{"stars":5,"text":"Startup culture with enterprise-level impact."},{"stars":4,"text":"Engineering excellence and high ownership culture."}]'>
+        <div class="comp-fav" title="Favourite"><i class="fa-regular fa-heart"></i></div>
+        <div class="comp-new-badge">🆕 New</div>
+        <div class="comp-logo-wrap">
+          <img src="https://logo.clearbit.com/razorpay.com" alt="Razorpay" onerror="this.src='https://ui-avatars.com/api/?name=Razorpay&background=ede4ff&color=5d0cdf&size=80'">
+        </div>
+        <div class="comp-info">
+          <h3>Razorpay</h3>
+          <p class="comp-industry"><i class="fa-solid fa-landmark"></i> Banking / Fintech</p>
+          <p class="comp-loc"><i class="fa-solid fa-location-dot"></i> Bangalore</p>
+          <p class="comp-emp"><i class="fa-solid fa-users"></i> 3,000 Employees</p>
+          <div class="comp-rating-row">
+            <span class="comp-stars">⭐ 4.5</span>
+            <span class="comp-jobs-badge"><i class="fa-solid fa-fire"></i> 60 Open Jobs</span>
+          </div>
+          <button class="view-comp-btn">View Company</button>
+        </div>
+      </div>
+
+    </div><!-- /.companies-grid -->
+
+    <!-- No Results -->
+    <p class="no-comp-results" id="noResults" style="display:none;">
+      <i class="fa-solid fa-building-circle-xmark"></i><br>No companies found. Try different filters.
+    </p>
+
+    <!-- PAGINATION -->
+    <div class="pagination" id="pagination"></div>
+
+  </div><!-- /.comp-main -->
+
+</div><!-- /.comp-layout -->
+
+<!-- ══════════════════════════
+     COMPANY DETAILS MODAL
+══════════════════════════ -->
+<div class="modal-overlay" id="compModal">
+  <div class="modal-box">
+    <button class="modal-close" id="modalClose"><i class="fa-solid fa-xmark"></i></button>
+
+    <!-- Header -->
+    <div class="modal-header">
+      <div class="modal-logo" id="modalLogo"></div>
+      <div class="modal-title-block">
+        <h2 id="modalName"></h2>
+        <p class="modal-industry" id="modalIndustry"></p>
+        <div class="modal-meta-row">
+          <span id="modalLoc"><i class="fa-solid fa-location-dot"></i></span>
+          <span id="modalFounded"><i class="fa-solid fa-calendar"></i></span>
+          <span id="modalSize"><i class="fa-solid fa-users"></i></span>
+        </div>
+      </div>
+      <div class="modal-rating-block">
+        <div class="modal-rating-num" id="modalRating"></div>
+        <div class="modal-rating-label">Employee Rating</div>
+      </div>
+    </div>
+
+    <!-- About -->
+    <div class="modal-section">
+      <h4><i class="fa-solid fa-circle-info"></i> About Company</h4>
+      <p id="modalAbout"></p>
+    </div>
+
+    <!-- Open Jobs -->
+    <div class="modal-section">
+      <h4><i class="fa-solid fa-fire"></i> Open Jobs</h4>
+      <div class="modal-jobs-list" id="modalJobsList"></div>
+    </div>
+
+    <!-- Reviews -->
+    <div class="modal-section">
+      <h4><i class="fa-solid fa-star"></i> Employee Reviews</h4>
+      <div class="modal-reviews" id="modalReviews"></div>
+    </div>
+
+    <!-- Actions -->
+    <div class="modal-actions">
+      <button class="modal-fav-btn" id="modalFav"><i class="fa-regular fa-heart"></i> Favourite</button>
+      <a class="modal-website-btn" id="modalWebsite" href="#" target="_blank" rel="noopener">
+        <i class="fa-solid fa-arrow-up-right-from-square"></i> Visit Website
+      </a>
+      <button class="modal-apply-btn"><i class="fa-solid fa-paper-plane"></i> Apply Now</button>
+    </div>
+
+  </div>
+</div>
+
+<script src="companies.js"></script>
+</body>
+</html>

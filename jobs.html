@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jobs | JobHub</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+<link rel="stylesheet" href="jobs.css">
+</head>
+<body>
+
+<!-- ══ NAVBAR ══ -->
+<header class="navbar">
+  <div class="logo">
+    <i class="fa-solid fa-briefcase"></i>
+    <h2>JobHub</h2>
+  </div>
+
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="jobs.html" class="active">Jobs</a></li>
+    <li><a href="categories.html">Categories</a></li>
+    <li><a href="candidates.html">Candidates</a></li>
+    <li><a href="companies.html">Companies</a></li>
+    <li><a href="news.html">News</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+
+  <div class="nav-btns">
+    <button class="login">Login</button>
+    <button class="post-job">Post Job</button>
+  </div>
+</header>
+
+<!-- ══ BANNER ══ -->
+<section class="job-banner">
+  <h1>Find Your Dream Job</h1>
+  <p>Home / Jobs</p>
+</section>
+
+<!-- ══ MAIN LAYOUT ══ -->
+<section class="jobs-container">
+
+  <!-- LEFT SIDEBAR — Filters -->
+  <div class="sidebar">
+
+    <div class="filter-group">
+      <h3>Job Category</h3>
+      <label><input type="checkbox"> Frontend</label>
+      <label><input type="checkbox"> Backend</label>
+      <label><input type="checkbox"> Full Stack</label>
+      <label><input type="checkbox"> Java</label>
+      <label><input type="checkbox"> Python</label>
+      <label><input type="checkbox"> UI / UX</label>
+    </div>
+
+    <div class="filter-group">
+      <h3>Job Type</h3>
+      <label><input type="checkbox"> Full Time</label>
+      <label><input type="checkbox"> Part Time</label>
+      <label><input type="checkbox"> Internship</label>
+      <label><input type="checkbox"> Freelance</label>
+      <label><input type="checkbox"> Remote</label>
+    </div>
+
+    <div class="filter-group">
+      <h3>Experience</h3>
+      <label><input type="checkbox"> Fresher</label>
+      <label><input type="checkbox"> 1 Year</label>
+      <label><input type="checkbox"> 2 Years</label>
+      <label><input type="checkbox"> 3+ Years</label>
+    </div>
+
+    <div class="filter-group">
+      <h3>Salary</h3>
+      <input type="range" min="10000" max="100000">
+      <div class="salary-labels">
+        <span>₹10,000</span>
+        <span>₹1,00,000</span>
+      </div>
+    </div>
+
+    <div class="filter-group">
+      <h3>Location</h3>
+      <label><input type="checkbox"> Chennai</label>
+      <label><input type="checkbox"> Bangalore</label>
+      <label><input type="checkbox"> Hyderabad</label>
+      <label><input type="checkbox"> Coimbatore</label>
+    </div>
+
+    <div class="filter-group">
+      <h3>Trending Skills</h3>
+      <div class="skills">
+        <span>HTML</span>
+        <span>CSS</span>
+        <span>JavaScript</span>
+        <span>React</span>
+        <span>Node</span>
+        <span>Python</span>
+      </div>
+    </div>
+
+  </div>
+  <!-- END LEFT SIDEBAR -->
+
+  <!-- MIDDLE — Job Cards -->
+  <div class="jobs-content">
+
+    <div class="top-bar">
+      <h2>All Jobs <span style="font-size:16px;color:var(--text);font-weight:500">(248 results)</span></h2>
+      <select>
+        <option>Latest First</option>
+        <option>Salary: High to Low</option>
+        <option>Salary: Low to High</option>
+        <option>Most Relevant</option>
+      </select>
+    </div>
+
+    <!-- Card 1 -->
+    <div class="job-card">
+      <div class="company-logo"><i class="fa-brands fa-react"></i></div>
+      <div class="job-info">
+        <h3>React Frontend Developer <span class="featured-badge">Featured</span></h3>
+        <p class="company-name">TechSolutions Pvt Ltd</p>
+        <div class="job-meta">
+          <span><i class="fa-solid fa-location-dot"></i> Chennai</span>
+          <span><i class="fa-solid fa-briefcase"></i> Full Time</span>
+          <span><i class="fa-solid fa-clock"></i> 2 days ago</span>
+          <span><i class="fa-solid fa-graduation-cap"></i> 1–3 Years</span>
+        </div>
+        <div class="job-tags">
+          <span>React</span><span>JavaScript</span><span>CSS</span><span>Redux</span>
+        </div>
+        <div class="job-footer">
+          <span class="salary">₹4,00,000 / Year</span>
+          <button class="apply-btn">Apply Now</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="job-card">
+      <div class="company-logo"><i class="fa-brands fa-node-js"></i></div>
+      <div class="job-info">
+        <h3>Node.js Backend Engineer</h3>
+        <p class="company-name">CloudBase Technologies</p>
+        <div class="job-meta">
+          <span><i class="fa-solid fa-location-dot"></i> Bangalore</span>
+          <span><i class="fa-solid fa-briefcase"></i> Remote</span>
+          <span><i class="fa-solid fa-clock"></i> 5 days ago</span>
+          <span><i class="fa-solid fa-graduation-cap"></i> 2+ Years</span>
+        </div>
+        <div class="job-tags">
+          <span>Node.js</span><span>MongoDB</span><span>REST API</span><span>Docker</span>
+        </div>
+        <div class="job-footer">
+          <span class="salary">₹6,50,000 / Year</span>
+          <button class="apply-btn">Apply Now</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="job-card">
+      <div class="company-logo"><i class="fa-brands fa-python"></i></div>
+      <div class="job-info">
+        <h3>Python Developer <span class="featured-badge">Featured</span></h3>
+        <p class="company-name">DataMinds Analytics</p>
+        <div class="job-meta">
+          <span><i class="fa-solid fa-location-dot"></i> Hyderabad</span>
+          <span><i class="fa-solid fa-briefcase"></i> Full Time</span>
+          <span><i class="fa-solid fa-clock"></i> 1 week ago</span>
+          <span><i class="fa-solid fa-graduation-cap"></i> Fresher</span>
+        </div>
+        <div class="job-tags">
+          <span>Python</span><span>Django</span><span>SQL</span><span>Pandas</span>
+        </div>
+        <div class="job-footer">
+          <span class="salary">₹3,20,000 / Year</span>
+          <button class="apply-btn">Apply Now</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 4 -->
+    <div class="job-card">
+      <div class="company-logo"><i class="fa-solid fa-layer-group"></i></div>
+      <div class="job-info">
+        <h3>Full Stack Developer</h3>
+        <p class="company-name">InnovateSoft</p>
+        <div class="job-meta">
+          <span><i class="fa-solid fa-location-dot"></i> Coimbatore</span>
+          <span><i class="fa-solid fa-briefcase"></i> Part Time</span>
+          <span><i class="fa-solid fa-clock"></i> 3 days ago</span>
+          <span><i class="fa-solid fa-graduation-cap"></i> 3+ Years</span>
+        </div>
+        <div class="job-tags">
+          <span>React</span><span>Node.js</span><span>MySQL</span><span>AWS</span>
+        </div>
+        <div class="job-footer">
+          <span class="salary">₹8,00,000 / Year</span>
+          <button class="apply-btn">Apply Now</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 5 -->
+    <div class="job-card">
+      <div class="company-logo"><i class="fa-solid fa-pen-nib"></i></div>
+      <div class="job-info">
+        <h3>UI / UX Designer</h3>
+        <p class="company-name">PixelCraft Studio</p>
+        <div class="job-meta">
+          <span><i class="fa-solid fa-location-dot"></i> Chennai</span>
+          <span><i class="fa-solid fa-briefcase"></i> Freelance</span>
+          <span><i class="fa-solid fa-clock"></i> Today</span>
+          <span><i class="fa-solid fa-graduation-cap"></i> 1 Year</span>
+        </div>
+        <div class="job-tags">
+          <span>Figma</span><span>Adobe XD</span><span>Prototyping</span>
+        </div>
+        <div class="job-footer">
+          <span class="salary">₹5,00,000 / Year</span>
+          <button class="apply-btn">Apply Now</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <!-- END MIDDLE -->
+
+  <!-- RIGHT SIDEBAR — Images -->
+  <div class="sidebar-image">
+    <img src="image copy.png" alt="Ad 1">
+    <img src="image copy 2.png" alt="Ad 2">
+    <img src="image copy 3.png" alt="Ad 3">
+    <img src="image copy 4.png" alt="Ad 4">
+  </div>
+
+</section>
+<script src="jobs.js"></script>
+
+</body>
+</html>
